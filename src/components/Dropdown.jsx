@@ -13,7 +13,7 @@ export default function Dropdown(props) {
 
   return (
     <div className="tk-dropdown" ref={ref}>
-      <button onClick={() => setOpen(!open)} className="tk-dropdown-title">
+      <button onClick={() => setOpen(true)} className="tk-dropdown-title">
         {props.value}
         {!props.value && (
           <div className="tk-dropdown-placeholder">{props.placeholder}</div>
@@ -32,11 +32,11 @@ export default function Dropdown(props) {
               <option
                 onClick={(e) => {
                   props.onClick(e.target.value);
-                  setOpen(!open);
+                  setOpen(false);
                 }}
                 onKeyPress={(e) =>
                   e.key === "Enter" &&
-                  (props.onClick(e.target.value), setOpen(!open))
+                  (props.onClick(e.target.value), setOpen(false))
                 }
                 value={value}
                 tabIndex="0"
