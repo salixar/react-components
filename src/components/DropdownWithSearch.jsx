@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import useClickOutside from "../utils/useClickOutside";
 
@@ -7,16 +7,13 @@ export default function DropdownWithSearch(props) {
   const [searched, setSearched] = useState("");
   const [height, setHeight] = useState(0);
 
+  const handleDropdown = () => {
+    setOpen(true);
+    setSearched("");
+  };
+
   const dropdown = useRef();
   const ref = useRef();
-
-  const handleDropdown = () => {
-    setOpen(!open);
-    setHeight(dropdown.current.scrollHeight);
-  };
-  const handleSearch = (e) => {
-    setSearched(e.target.value);
-  };
 
   const results = !searched
     ? props.options
@@ -24,13 +21,21 @@ export default function DropdownWithSearch(props) {
         option.toLowerCase().includes(searched.toLowerCase())
       );
 
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setSearched(value);
+  };
   // close the dropdown on click outside
   useClickOutside(ref, () => {
-    setHeight(dropdown.current.scrollHeight);
     setOpen(false);
-    setSearched("");
   });
 
+  useEffect(() => {
+    if (open) {
+      const height = dropdown.current.scrollHeight;
+      setHeight(height);
+    }
+  }, [open]);
   const SearchIcon = () => {
     return (
       <svg
@@ -55,7 +60,6 @@ export default function DropdownWithSearch(props) {
       </svg>
     );
   };
-
   return (
     <div className="tk-dropdown" ref={ref}>
       <button onClick={handleDropdown} className="tk-dropdown-title">
@@ -71,30 +75,27 @@ export default function DropdownWithSearch(props) {
           maxHeight: open ? `${height}px` : "0px",
         }}
       >
-        <section>
-          <div className="tk-dropdown-search-container">
-            <input
-              className="tk-dropdown-search-input"
-              type="text"
-              value={searched}
-              onChange={handleSearch}
-              placeholder={props.searchPlaceholder}
-            />
-            <SearchIcon />
-          </div>
-        </section>
-        {results !== "" && (
+        <div className="tk-dropdown-search-container">
+          <input
+            className="tk-dropdown-search-input"
+            type="text"
+            value={searched}
+            onChange={handleSearch}
+            placeholder={props.searchPlaceholder}
+          />
+          <SearchIcon />
+        </div>
+        {results.length !== 0 && (
           <section role="listbox" aria-expanded={open}>
             {results.map((value, index) => (
               <option
                 onClick={(e) => {
                   props.onClick(e.target.value);
-                  setSearched("");
-                  setOpen(!open);
+                  setOpen(false);
                 }}
                 onKeyPress={(e) =>
                   e.key === "Enter" &&
-                  (props.onClick(e.target.value), setOpen(!open))
+                  (props.onClick(e.target.value), setOpen(false))
                 }
                 value={value}
                 tabIndex="0"
