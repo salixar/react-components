@@ -1,0 +1,43 @@
+$inactive: #f9fafc;
+$gray: #adaeaf;
+$secondaryGray: #e0e6ed;
+$textColor: #383737;
+$accentColor: #587ef5;
+$danger: #ce4242;
+
+@font-face {
+  font-family: "Ubuntu", sans-serif;
+  src: url("../fonts/Ubuntu-Medium.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Ubuntu", sans-serif;
+  src: url("../fonts/Ubuntu-Regular.ttf") format("truetype");
+  font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Ubuntu", sans-serif;
+  src: url("../fonts/Ubuntu-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  background-color: #eff2f7;
+}

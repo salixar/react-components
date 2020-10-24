@@ -1,0 +1,113 @@
+.tk-dropdown {
+  position: relative;
+  margin: 0.5rem;
+  box-sizing: border-box;
+
+  & ~ * {
+    box-sizing: border-box;
+  }
+
+  .tk-dropdown-title {
+    position: relative;
+    height: 48px;
+    width: 240px;
+    padding: 0 20px;
+    background-color: $inactive;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border-radius: 4px;
+    color: $textColor;
+    box-shadow: 0px 1px 5px rgba($color: #252629, $alpha: 0.03);
+    transition: all 0.15s ease-in-out;
+    z-index: 2;
+    cursor: pointer;
+    border: none;
+
+    &.focused {
+      box-shadow: 0 0 0 2px $accentColor;
+    }
+
+    &.error {
+      box-shadow: 0 0 0 2px $danger;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $accentColor;
+    }
+
+    .tk-dropdown-placeholder {
+      color: $gray;
+    }
+  }
+
+  .tk-dropdown-search-container {
+    position: relative;
+    padding: 12px;
+    border-bottom: 2px solid $inactive;
+    width: 100%;
+  }
+
+  .tk-dropdown-search-input {
+    outline: none;
+    border: none;
+    width: 100%;
+    background: $secondaryGray;
+    border-radius: 4px;
+    height: 35px;
+    padding: 0 12px;
+    transition: all 0.25s ease-out;
+    color: $textColor;
+
+    &::placeholder {
+      color: $gray;
+    }
+
+    &:focus {
+      background-color: white;
+      box-shadow: 0 0 0 2px $accentColor;
+    }
+  }
+
+  .tk-dropdown-search-icon {
+    position: absolute;
+    right: 24px;
+    top: 21px;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .tk-dropdown-list {
+    width: 100%;
+    background-color: white;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 3px 4px rgba($color: #000000, $alpha: 0.08);
+    overflow: hidden;
+    transition: all 0.25s ease-out;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+
+    option {
+      cursor: pointer;
+      list-style: none;
+      padding: 16px 20px;
+      transition: all 0.15s ease-out;
+      outline: none;
+      &:hover {
+        background-color: $inactive;
+      }
+      &:focus {
+        background-color: #ebebeb;
+      }
+    }
+  }
+
+  .tk-dropdown-error {
+    position: absolute;
+    top: 115%;
+    color: $danger;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+}
