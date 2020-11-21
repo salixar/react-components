@@ -1,0 +1,26 @@
+.tk-tooltip {
+  position: relative;
+  box-sizing: border-box;
+
+  &:hover {
+    .tk-tooltip-message {
+      user-select: initial;
+      visibility: visible;
+      z-index: 999;
+    }
+  }
+
+  &-message {
+    font-size: 14px;
+    font-weight: normal;
+    padding: 16px;
+    border-radius: 4px;
+    background: white;
+    pointer-events: none;
+    user-select: none;
+    visibility: hidden;
+    position: fixed;
+    z-index: -999;
+    display: inline-block;
+  }
+}
