@@ -26,7 +26,12 @@ export default function Dropdown(props) {
           maxHeight: open ? `${dropdown.current.scrollHeight}px` : "0px",
         }}
       >
-        <section role="listbox" aria-expanded={open}>
+        <section
+          name="dropdown list"
+          role="listbox"
+          aria-expanded={open}
+          aria-label="dropdown list"
+        >
           {props.options &&
             props.options.map((value, index) => (
               <option

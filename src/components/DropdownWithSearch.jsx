@@ -12,6 +12,7 @@ export default function DropdownWithSearch(props) {
     setSearched("");
   };
 
+  const id = `f${(~~(Math.random() * 1e8)).toString(16)}`;
   const dropdown = useRef();
   const ref = useRef();
 
@@ -76,17 +77,24 @@ export default function DropdownWithSearch(props) {
         }}
       >
         <div className="tk-dropdown-search-container">
-          <input
-            className="tk-dropdown-search-input"
-            type="text"
-            value={searched}
-            onChange={handleSearch}
-            placeholder={props.searchPlaceholder}
-          />
+          <label htmlFor={id}>
+            <input
+              className="tk-dropdown-search-input"
+              type="text"
+              value={searched}
+              onChange={handleSearch}
+              placeholder={props.searchPlaceholder}
+              id={id}
+            />
+          </label>
           <SearchIcon />
         </div>
         {results.length !== 0 && (
-          <section role="listbox" aria-expanded={open}>
+          <section
+            role="listbox"
+            aria-expanded={open}
+            aria-label="dropdown list"
+          >
             {results.map((value, index) => (
               <option
                 onClick={(e) => {
