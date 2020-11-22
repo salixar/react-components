@@ -1,35 +1,16 @@
-import React, { useState } from "react";
-import Button from "./components/Button";
-import Dropdown from "./components/Dropdown";
-import DropdownWithSearch from "./components/DropdownWithSearch";
-import Tooltip from "./components/Tooltip";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  const options = ["This", "That", "Those"];
-  const numbers = ["One", "Two", "Three", "Four"];
-  const [value, setValue] = useState("");
-  const [number, selectNumber] = useState("");
-
   return (
-    <div className="App">
-      <Tooltip message="Floating tooltip" floating>
-        <Dropdown
-          options={options}
-          placeholder="Выберите из списка"
-          onClick={(e) => setValue(e)}
-          value={value}
-        />
-      </Tooltip>
-      <DropdownWithSearch
-        options={numbers}
-        placeholder="Выберите из списка"
-        onClick={(e) => selectNumber(e)}
-        value={number}
-      />
-      <Tooltip message="Fixed tooltip">
-        <Button>Test</Button>
-      </Tooltip>
-    </div>
+    <Router>
+      <aside>
+        <h3>Quick access</h3>
+      </aside>
+      <Switch>
+        <Route></Route>
+      </Switch>
+    </Router>
   );
 }
 

@@ -1,5 +1,6 @@
 $inactive: #f9fafc;
 $gray: #adaeaf;
+$backgroundColor: #eff2f7;
 $secondaryGray: #e0e6ed;
 $inactiveGray: #909090;
 $textColor: #383737;
@@ -35,10 +36,26 @@ $danger: #ce4242;
   font-size: 16px;
 }
 
-.App {
-  display: flex;
-  justify-content: center;
+#root {
   height: 100vh;
   align-items: center;
-  background-color: #eff2f7;
+  background-color: white;
+}
+
+aside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: white;
+  width: 275px;
+  height: 100%;
+  padding: 10px;
+  background-color: $backgroundColor;
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 1;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
