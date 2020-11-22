@@ -1,11 +1,13 @@
-.tk-button-container {
+.tk-button__container {
   position: relative;
   outline: none;
   border: none;
   cursor: pointer;
   box-shadow: 0px 1px 5px rgba($color: #252629, $alpha: 0.03);
   transition: all 0.15s ease-in-out;
-  color: $textColor;
+  color: white;
   padding: 0 20px;
   height: 48px;
+  border-radius: 4px;
+  background-color: $accentColor;
 }

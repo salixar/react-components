@@ -38,14 +38,15 @@ $danger: #ce4242;
 
 #root {
   height: 100vh;
-  align-items: center;
+  display: flex;
   background-color: white;
 }
 
+main {
+  padding: 80px 40px 40px;
+}
+
 aside {
-  position: fixed;
-  left: 0;
-  top: 0;
   background: white;
   width: 275px;
   height: 100%;
