@@ -1,23 +1,20 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Modal from "./components/Modal";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Dropdowns from "./components/Dropdowns/Dropdowns";
 
 function App() {
-  const [Open, setOpen] = useState(false);
-
   return (
     <Router>
       <aside>
         <h3>Quick access</h3>
+        <Link to="/dropdowns">Dropdowns</Link>
       </aside>
-      <main className="container">
-        <button className="tk-button__container" onClick={() => setOpen(true)}>Show modal</button>
-      <Modal open={Open} onClose={() => setOpen(false)} bindTo="portal">
-        test
-      </Modal>
-      <Switch>
-        <Route></Route>
-      </Switch>
+      <main>
+        <Switch>
+          <Route exact path="/dropdowns">
+            <Dropdowns />
+          </Route>
+        </Switch>
       </main>
     </Router>
   );

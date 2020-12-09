@@ -1,0 +1,26 @@
+$max: 50;
+$offset: 5;
+$unit: "px";
+
+@mixin margin-loop($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+
+// Margins
+@include margin-loop(".mt-", "margin-top");
+@include margin-loop(".mr-", "margin-right");
+@include margin-loop(".mb-", "margin-bottom");
+@include margin-loop(".ml-", "margin-left");
+@include margin-loop(".mx-", "margin");
+// Paddings
+@include margin-loop(".pt-", "padding-top");
+@include margin-loop(".pr-", "padding-right");
+@include margin-loop(".pb-", "padding-bottom");
+@include margin-loop(".pl-", "padding-left");
+@include margin-loop(".px-", "padding");

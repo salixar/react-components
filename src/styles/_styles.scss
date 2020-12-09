@@ -32,6 +32,11 @@ $danger: #ce4242;
   padding: 0;
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
+}
+
+div,
+p,
+button {
   font-weight: normal;
   font-size: 16px;
 }
@@ -42,10 +47,6 @@ $danger: #ce4242;
   background-color: white;
 }
 
-main {
-  padding: 80px 40px 40px;
-}
-
 aside {
   background: white;
   width: 275px;
@@ -54,9 +55,36 @@ aside {
   background-color: $backgroundColor;
 }
 
+main {
+  flex: 1 0 auto;
+  padding: 40px 80px;
+}
+
 h3 {
   font-size: 18px;
   line-height: 1;
   margin-bottom: 20px;
   font-weight: bold;
+}
+
+@keyframes popUp {
+  0% {
+    transform: translate3d(0, -15px, 0) scale(0.97);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes popOut {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -15px, 0) scale(0.97);
+  }
 }
