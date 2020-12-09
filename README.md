@@ -1,11 +1,17 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Test Kit - Component Library
 
-### True Kit - Component Library
+**Dropdowns**
 
-**Dropdown**
-
-const options = ['One', 'Two', 'Three'];
+...
+const [value, setValue] = useState('');
+const numbers = ['One', 'Two', 'Three'];
 
 // Пример
-`<Dropdown options={options} placeholder="Выберите из списка" isRequired validationText="Это поле обязательно для заполнения" />`
+`<Dropdown 
+  options={numbers}
+  className="my-class"
+  placeholder="Выберите из списка"
+  onClick={(e) => setValue(e)}
+  value={value}
+ />`
 
