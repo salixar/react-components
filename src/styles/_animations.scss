@@ -92,12 +92,3 @@
     transform-origin: bottom;
   }
 }
-
-@keyframes slide-to-right {
-  from {
-    left: -100%;
-  }
-  to {
-    left: 0;
-  }
-}
