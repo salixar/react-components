@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import Button from "./Button";
+import useOutsideClick from "../utils/useClickOutside";
 
 function Modal(props) {
   const { open, onClose, className, width, children, bindTo } = props;
   const [isRendered, setRender] = useState(open);
+  const modal = useRef();
 
   useEffect(() => {
     if (open) setRender(true);
@@ -14,6 +16,7 @@ function Modal(props) {
   const setInvisible = () => {
     if (!open) setRender(false);
   };
+  useOutsideClick(modal, () => onClose());
 
   if (isRendered) {
     return ReactDOM.createPortal(
@@ -24,13 +27,14 @@ function Modal(props) {
         }}
         onAnimationEnd={setInvisible}
       >
-        <div className="tk-modal__overlay" onClick={onClose} />
+        <div className="tk-modal__overlay" />
         <div
           className="tk-modal__container"
           style={{
             maxWidth: `${width}`,
             animation: `${open ? "scaleUp" : "scaleDown"} 0.35s`,
           }}
+          ref={modal}
         >
           <div className="tk_modal__container--header">
             <Button className="transparent" onClick={onClose}>
