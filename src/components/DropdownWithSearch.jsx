@@ -128,9 +128,6 @@ export default function DropdownWithSearch(props) {
             )}
           </div>
         )}
-        {props.required && props.value === "" && (
-          <div className="tk-dropdown-error">{props.error}</div>
-        )}
       </div>
     </div>
   );
@@ -139,13 +136,10 @@ export default function DropdownWithSearch(props) {
 DropdownWithSearch.defaultProps = {
   placeholder: "Select",
   searchPlaceholder: "Search",
-  required: false,
 };
 
 DropdownWithSearch.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   searchPlaceholder: PropTypes.string,
-  error: PropTypes.string,
-  required: PropTypes.bool,
 };

@@ -1,10 +1,10 @@
 $inactive: #f9fafc;
 $gray: #adaeaf;
-$backgroundColor: #eff2f7;
+$backgroundColor: #f8f8fa;
 $secondaryGray: #e0e6ed;
-$inactiveGray: #909090;
+$inactiveGray: #7b8a97;
 $textColor: #383737;
-$accentColor: #587ef5;
+$accentColor: #2169f6;
 $danger: #ce4242;
 
 @font-face {
@@ -51,7 +51,7 @@ aside {
   background: white;
   width: 275px;
   height: 100%;
-  padding: 10px;
+  padding: 20px 12px;
   background-color: $backgroundColor;
 }
 
@@ -60,31 +60,57 @@ main {
   padding: 40px 80px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $textColor;
+}
+
 h3 {
   font-size: 18px;
   line-height: 1;
-  margin-bottom: 20px;
   font-weight: bold;
 }
 
-@keyframes popUp {
-  0% {
-    transform: translate3d(0, -15px, 0) scale(0.97);
-    opacity: 0;
+li {
+  list-style-type: none;
+}
+
+.tk-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px 18px;
+  color: $textColor;
+  text-decoration: none;
+  z-index: 1;
+  border-radius: 4px;
+  transition: 0.35s;
+  &:visited {
+    color: $textColor;
   }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
+  &.active {
+    color: white;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $accentColor;
+      animation: slide-to-right 0.35s forwards;
+      z-index: -1;
+    }
   }
 }
 
-@keyframes popOut {
-  0% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: translate3d(0, -15px, 0) scale(0.97);
-  }
+.tk-grid-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }

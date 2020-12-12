@@ -71,9 +71,6 @@ export default function Dropdown(props) {
             </section>
           </div>
         )}
-        {props.required && props.value === "" && (
-          <div className="tk-dropdown-error">{props.error}</div>
-        )}
       </div>
     </div>
   );
@@ -81,12 +78,9 @@ export default function Dropdown(props) {
 
 Dropdown.defaultProps = {
   placeholder: "Select",
-  required: false,
 };
 
 Dropdown.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
-  error: PropTypes.string,
-  required: PropTypes.bool,
 };

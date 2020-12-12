@@ -11,3 +11,9 @@
   border-radius: 4px;
   background-color: $accentColor;
 }
+
+.transparent {
+  box-shadow: none;
+  color: $accentColor;
+  background-color: transparent;
+}
