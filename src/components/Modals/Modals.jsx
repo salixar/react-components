@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
 import Modal from "../Modal";
 
 export default function Modals() {
   const [open, setOpen] = useState(false);
   const [isLoading, setLoading] = useState(true);
 
-  useEffect(() => {}, []);
   return (
     <>
+      <h1 className="mb-20">Modal</h1>
       <button className="tk-button__container" onClick={() => setOpen(true)}>
         test
       </button>
       <Modal open={open} onClose={() => setOpen(false)} bindTo="portal">
-        <div onLoadStart={() => console.log("started loading")}>
+        <div>
           {isLoading && (
             <div className="loader-container">
               <div className="loader" />

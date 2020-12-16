@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Dropdowns from "./components/Dropdowns/Dropdowns";
 import Modals from "./components/Modals/Modals";
+import PaginationPage from "./components/Pagination/PaginationPage";
 
 function App() {
   return (
@@ -29,6 +30,11 @@ function App() {
               Modal
             </NavLink>
           </li>
+          <li>
+            <NavLink className="tk-link" to="/pagination">
+              Pagination
+            </NavLink>
+          </li>
         </ul>
       </aside>
       <main>
@@ -38,6 +44,9 @@ function App() {
           </Route>
           <Route exact path="/modal">
             <Modals />
+          </Route>
+          <Route exact path="/pagination">
+            <PaginationPage />
           </Route>
         </Switch>
       </main>

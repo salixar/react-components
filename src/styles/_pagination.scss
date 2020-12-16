@@ -1,0 +1,46 @@
+.tk-pagination {
+  display: flex;
+  align-items: center;
+}
+.tk-page-item {
+  border: 1px solid $inactiveGray;
+  border-right: none;
+  transition: 0.35s;
+  background-color: white;
+  &:hover {
+    background-color: $secondaryGray;
+  }
+  &:first-of-type {
+    border-radius: 3px 0 0 3px;
+  }
+  &:last-of-type {
+    border-radius: 0 3px 3px 0;
+    border-right: 1px solid $inactiveGray;
+  }
+
+  & > button {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    font-size: 16px;
+    color: $textColor;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-radius: 0;
+    &:focus {
+      z-index: 2;
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba(0, 60, 255, 0.5);
+    }
+  }
+  &.active {
+    background-color: $accentColor;
+    & > button {
+      color: white;
+      &:disabled {
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+  }
+}

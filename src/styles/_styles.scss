@@ -48,7 +48,9 @@ button {
 }
 
 aside {
-  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 275px;
   height: 100%;
   padding: 20px 12px;
@@ -58,6 +60,7 @@ aside {
 main {
   flex: 1 0 auto;
   padding: 40px 80px;
+  margin-left: 275px;
 }
 
 h1,
