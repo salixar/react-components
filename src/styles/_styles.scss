@@ -34,17 +34,24 @@ $danger: #ce4242;
   font-family: "Ubuntu", sans-serif;
 }
 
+body,
+html {
+  height: 100%;
+}
+
+#root {
+  min-height: 100%;
+}
+
+body {
+  background-color: white;
+}
+
 div,
 p,
 button {
   font-weight: normal;
   font-size: 16px;
-}
-
-#root {
-  height: 100vh;
-  display: flex;
-  background-color: white;
 }
 
 aside {
@@ -58,9 +65,11 @@ aside {
 }
 
 main {
-  flex: 1 0 auto;
   padding: 40px 80px;
   margin-left: 275px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -107,4 +116,30 @@ li {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+
+.airlines-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(auto, 100%));
+  gap: 20px;
+}
+
+.airlines-card {
+  border: 1px solid $secondaryGray;
+  border-radius: 4px;
+  padding: 30px;
+}
+
+.airline-logo__container {
+  height: 150px;
+  width: 150px;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.airline-logo {
+  width: 100%;
 }

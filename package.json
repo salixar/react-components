@@ -1,4 +1,5 @@
 {
+  "homepage": "http://salixar.github.io/react-components",
   "name": "components",
   "version": "0.3.0",
   "private": true,
@@ -14,9 +15,12 @@
     "react-scripts": "^4.0.0"
   },
   "devDependencies": {
-    "eslint-webpack-plugin": "^2.1.0"
+    "eslint-webpack-plugin": "^2.1.0",
+    "gh-pages": "^3.1.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

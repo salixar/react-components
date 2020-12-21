@@ -3,7 +3,7 @@
   align-items: center;
 }
 .tk-page-item {
-  border: 1px solid $inactiveGray;
+  border: 1px solid $secondaryGray;
   border-right: none;
   transition: 0.35s;
   background-color: white;
@@ -15,7 +15,7 @@
   }
   &:last-of-type {
     border-radius: 0 3px 3px 0;
-    border-right: 1px solid $inactiveGray;
+    border-right: 1px solid $secondaryGray;
   }
 
   & > button {

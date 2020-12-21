@@ -26,7 +26,7 @@ function App() {
             </NavLink>
           </li>
           <li>
-            <NavLink className="tk-link" to="/modal">
+            <NavLink className="tk-link mb-10" to="/modal">
               Modal
             </NavLink>
           </li>
