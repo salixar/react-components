@@ -10,7 +10,7 @@ export default function DropdownWithSearch(props) {
   const classNameProp = `${props.className ? " " + props.className : ""}`;
 
   const handleDropdown = () => {
-    setOpen(true);
+    setOpen(!open);
     setSearched("");
   };
 
@@ -67,15 +67,16 @@ export default function DropdownWithSearch(props) {
   return (
     <div className={className + classNameProp} ref={dropdown}>
       <div className="tk-dropdown-wrapper">
-        {!props.value && (
-          <span className="tk-dropdown-placeholder">{props.placeholder}</span>
-        )}
         <button onClick={handleDropdown} className="tk-dropdown-title">
-          {props.value}
+          {props.value ? (
+            props.value
+          ) : (
+            <span className="tk-dropdown-placeholder">{props.placeholder}</span>
+          )}
         </button>
         <div className="tk-dropdown-chevron">
-          <div className="tk-dropdown-chevron--line"></div>
-          <div className="tk-dropdown-chevron--line"></div>
+          <div className="tk-dropdown-chevron--line"/>
+          <div className="tk-dropdown-chevron--line"/>
         </div>
         {isRendered && (
           <div
@@ -91,7 +92,7 @@ export default function DropdownWithSearch(props) {
                   className="tk-dropdown-search-input"
                   type="text"
                   value={searched}
-                  onChange={handleSearch}
+                  onChange={props.onSearch ? props.onSearch : handleSearch}
                   placeholder={props.searchPlaceholder}
                   id={id}
                 />
